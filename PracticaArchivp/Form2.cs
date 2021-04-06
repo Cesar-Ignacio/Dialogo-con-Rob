@@ -25,10 +25,12 @@ namespace PracticaArchivp
             if(sexo_usuario=="Masculino")
             {
                 pictureBox1.Image = Properties.Resources.hombre;
+                groupBox1.BackColor=Color.DodgerBlue;
             }
             else
             {
                 pictureBox1.Image = Properties.Resources.mujer;
+                groupBox1.BackColor = Color.PaleVioletRed;
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,17 +24,23 @@ namespace PracticaArchivp
             dialogos_disponibles = dialogos.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
         }
 
+        private string PCM(string nombre) 
+        {
+            return CultureInfo.InvariantCulture.TextInfo.ToTitleCase(nombre);
+        }
+
         private void CargarDialogo()
         {
             Random rand = new Random();
+            label1.Text = "Bienvenido ";
+            label1.Text +=", " +PCM(nombre_usuario)+",";
             int numero = rand.Next(1, dialogos_disponibles.Length);
             label1.Text +=dialogos_disponibles[numero]; 
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            label1.Text = "Bienvenido ";
-            label1.Text +="," +nombre_usuario+",";
+
             CargarDialogo();
         }
     }
